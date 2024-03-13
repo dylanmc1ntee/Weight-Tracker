@@ -18,13 +18,33 @@
                 </div>
                 <div class="enterWeight">
                     <input type="text" id="weight" placeholder="pounds">
-                    <button id="search">Enter</button>
+                    <button onclick="addToDo()" id="search">Enter</button>
                 </div>
             </aside>
             <section class="input-box">
                 <img id="arnold" src="./images/arnold.png" alt="arnold">
             </section>
         </div>
+        <section class="displayContainer">
+            <div class="display">
+                <div class="average">
+                    <h3>You average</h3>
+                    <h2>10</h2>
+                    <h3>pounds per week.</h3>
+                </div>
+                <ul class="listWeights" id="log-container" onclick="remove()">
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                    <li id="log"><div class="date"><p id="curDate">Tue Mar 12 2024</p></div><div id="curWeight">171</div></li>
+                </ul>
+            </div>
+        </section>
         <script src="script.js"></script>
     </body>
 </html>
