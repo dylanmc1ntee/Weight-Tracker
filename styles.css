@@ -14,6 +14,11 @@ h1{
     margin-top: 30px;
 }
 
+#title:hover{
+    cursor: pointer;
+    color:rgb(210, 150, 100);
+}
+
 header{
     display: flex;
     color: #FFFFFF;
@@ -53,6 +58,11 @@ aside{
     align-items: flex-start;
     justify-content: center;
     height: 100px;
+}
+
+.welcome:hover{
+    cursor: pointer;
+    color:rgb(210, 150, 100);
 }
 
 .enterWeight{
@@ -136,13 +146,19 @@ aside{
     color: #FFFFFF;
 }
 
+.average:hover{
+    cursor: pointer;
+    color:rgb(210, 150, 100);
+}
+
 .listWeights{
     list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding-right: 40px;
-    height: 85%;
+    height: 75%;
     width: 50%;
+    margin-bottom: 100px;
     border-radius: 10px;
     overflow: auto;
 }
@@ -154,12 +170,16 @@ aside{
 .listWeights li{
     background-color: rgb(30, 30, 50);
     color: #FFFFFF;
+    font-size: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    padding-top: 8px;
     margin-top: 15px;
     border-radius: 20px;
+    cursor: pointer;
+    background-image: linear-gradient(rgb(30, 30, 50), rgb(43, 43, 73), rgb(30, 30, 50));
 }
 
 #curDate{
