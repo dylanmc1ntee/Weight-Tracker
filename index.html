@@ -8,12 +8,22 @@
     </head>
     <body>
         <header>
-            <h1>Goodmorning, today is</h1>
-            <h1 id="date"></h1>
+            <h1 id="title">daily weight tracker</h1>
         </header>
-        <div class="input-box">
-            <input type="number" id="weight" placeholder="Weight in pounds">
-            <button id="search">Enter</button>
+        <div class="container">
+            <aside>
+                <div class="welcome">
+                    <h1>Goodmorning, today is</h1>
+                    <h1 id="date"></h1>
+                </div>
+                <div class="enterWeight">
+                    <input type="text" id="weight" placeholder="pounds">
+                    <button id="search">Enter</button>
+                </div>
+            </aside>
+            <section class="input-box">
+                <img id="arnold" src="./images/arnold.png" alt="arnold">
+            </section>
         </div>
         <script src="script.js"></script>
     </body>
