@@ -158,7 +158,6 @@ aside{
     padding-right: 40px;
     height: 75%;
     width: 50%;
-    margin-bottom: 100px;
     border-radius: 10px;
     overflow: auto;
 }
@@ -177,6 +176,7 @@ aside{
     width: 100%;
     padding-top: 8px;
     margin-top: 15px;
+    margin-bottom: auto;
     border-radius: 20px;
     cursor: pointer;
     background-image: linear-gradient(rgb(30, 30, 50), rgb(43, 43, 73), rgb(30, 30, 50));
