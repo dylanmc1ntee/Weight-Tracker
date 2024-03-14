@@ -4,10 +4,12 @@ document.getElementById("date").innerHTML = datetime;
 var connect = "  -  ";
 var pounds = "lbs";
 var numbers = [];
+var change = [];
 
 const inputBox = document.getElementById("weight");
 const listContainer = document.getElementById("log-container");
 
+/*
 function findAvg()
 {
     var avg = 0;
@@ -18,8 +20,6 @@ function findAvg()
     }
     else
     {
-        alert("hello");
-        /*
         for(let i = 0; i < numbers.length; i+=7)
         {
             sum += numbers[i];
@@ -46,29 +46,89 @@ function findAvg()
         {
             avg.pop;
         }
-        */
+        
         for(let i = 0; i < numbers.length - 1; i++)
         {
             sum.push(parseInt(i+1) - parseInt(i));
         }
         for(let j = 0; j < sum.length; j++)
         {
-            alert("he");
-            avg += parseInt(sum[i]);
-            alert("he");
+            avg += parseInt(sum[j]);
         }
        //avg = avg / numbers.length;
-        alert(avg / sum.length);
-        document.getElementById("avgNet").innerHTML = avg / sum.length;
+        let net = avg / sum.length;
+        let res = document.getElementById("avgNet");
+        alert(avg);
+        alert(net);
+        res.innerHTML = net;
+
+        if(net > 0)
+        {
+            res.style.color = "#007502";
+        }
+        else
+        {
+            res.style.color = "#b00000";
+        }
+    }
+}
+*/
+
+function findChange()
+{
+    for(var i = 0; i < numbers.length - 1; i++)
+    {
+        change[i] = numbers[i + 1] - numbers[i];
     }
 }
 
+function calculateAverage(array) 
+{ 
+    const sum = array.reduce((acc, curr) => acc + curr, 0); 
+    const average = sum / array.length; 
+    return average; 
+} 
+
 function restart()
 {
-    numbers = [];
+    var numbers = [];
+    var change = [];
 }
 
-function addToDo()
+function roundTo(n, digits) {
+    if (digits === undefined) {
+        digits = 0;
+    }
+
+    var multiplicator = Math.pow(10, digits);
+    n = parseFloat((n * multiplicator).toFixed(11));
+    return Math.round(n) / multiplicator;
+}
+
+function calculate()
+{
+    if(numbers.length < 2)
+    {
+        document.getElementById("avgNet").innerHTML = "N/A";
+    }
+    else
+    {
+        findChange();
+        const ans = roundTo(calculateAverage(change), 1);
+        document.getElementById("avgNet").innerHTML = ans;
+
+        if(ans > 0)
+        {
+            document.getElementById("avgNet").style.color = "#007502";
+        }
+        else
+        {
+            document.getElementById("avgNet").style.color = "#b00000";
+        }
+    }
+}
+
+function addWeight()
 {
     if(inputBox.value === '')
     {
@@ -80,7 +140,7 @@ function addToDo()
         li.innerHTML = datetime + connect + inputBox.value + pounds;
         listContainer.appendChild(li);
         numbers.push(inputBox.value)
-        findAvg();
+        calculate();
     }
     inputBox.value = "";
     saveData();
