@@ -5,74 +5,10 @@ var connect = "  -  ";
 var pounds = "lbs";
 var numbers = [];
 var change = [];
+let net = 0;
 
 const inputBox = document.getElementById("weight");
 const listContainer = document.getElementById("log-container");
-
-/*
-function findAvg()
-{
-    var avg = 0;
-    var sum = [];
-    if(numbers.length < 7)
-    {
-        document.getElementById("avgNet").innerHTML = "N/A";
-    }
-    else
-    {
-        for(let i = 0; i < numbers.length; i+=7)
-        {
-            sum += numbers[i];
-            sum += numbers[i+1];
-            sum += numbers[i+2];
-            sum += numbers[i+3];
-            sum += numbers[i+4];
-            sum += numbers[i+5];
-            sum += numbers[i+6];
-
-            avg.push(sum/7);
-            sum = 0;
-        }
-
-        var total = 0;
-        for(let j = 0; j < avg.length; j++)
-        {
-            total += avg[j];
-        }
-
-        document.getElementById("avgNet").innerHTML = total / avg.length;
-        
-        for(let k = 0; k < avg.length; k++)
-        {
-            avg.pop;
-        }
-        
-        for(let i = 0; i < numbers.length - 1; i++)
-        {
-            sum.push(parseInt(i+1) - parseInt(i));
-        }
-        for(let j = 0; j < sum.length; j++)
-        {
-            avg += parseInt(sum[j]);
-        }
-       //avg = avg / numbers.length;
-        let net = avg / sum.length;
-        let res = document.getElementById("avgNet");
-        alert(avg);
-        alert(net);
-        res.innerHTML = net;
-
-        if(net > 0)
-        {
-            res.style.color = "#007502";
-        }
-        else
-        {
-            res.style.color = "#b00000";
-        }
-    }
-}
-*/
 
 function findChange()
 {
@@ -116,6 +52,7 @@ function calculate()
         findChange();
         const ans = roundTo(calculateAverage(change), 1);
         document.getElementById("avgNet").innerHTML = ans;
+        net = ans;
 
         if(ans > 0)
         {
@@ -158,11 +95,17 @@ listContainer.addEventListener("click", function(e)
 function saveData()
 {
     localStorage.setItem("data", listContainer.innerHTML);
+    localStorage.setItem("avgNet", net);
+    localStorage.setItem("numbers", numbers);
+    localStorage.setItem("change", change);
 }
 
 function displaySaved()
 {
     listContainer.innerHTML = localStorage.getItem("data");
+    document.getElementById("avgNet").innerHTML = localStorage.getItem("avgNet");
+    numbers = localStorage.getItem("numbers");
+    change = localStorage.getItem("change");
 }
 
 displaySaved();
